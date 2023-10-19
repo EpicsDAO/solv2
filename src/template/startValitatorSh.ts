@@ -1,18 +1,22 @@
 import {
-  DEFAULT_SOLANA_NETWORK,
   LEDGER_PATH,
   LOG_PATH,
   MAINNET_VALIDATOR_KEYFILE,
   SOLANA_ACCOUNT_ROOT,
   TESTNET_VALIDATOR_KEYFILE,
   VALIDATOR_VOTE_KEYFILE,
+  config,
 } from '@/config'
 
-//const identityKey = DEFAULT_SOLANA_NETWORK === 'mainnet-beta' ? MAINNET_VALIDATOR_KEYFILE : TESTNET_VALIDATOR_KEYFILE
+const { network } = config()
+const identityKey =
+  network === 'mainnet-beta'
+    ? MAINNET_VALIDATOR_KEYFILE
+    : TESTNET_VALIDATOR_KEYFILE
 
 const commonValidatorCommands = `#!/bin/bash
 exec solana-validator \\
---identity ${TESTNET_VALIDATOR_KEYFILE} \\
+--identity ${identityKey} \\
 --vote-account ${VALIDATOR_VOTE_KEYFILE} \\
 --log ${LOG_PATH} \\
 --accounts ${SOLANA_ACCOUNT_ROOT} \\

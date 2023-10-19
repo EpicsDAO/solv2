@@ -5,7 +5,8 @@ import { setupSwap } from './setupSwap'
 import { startValidator } from './startValidator'
 import { Logger } from '@/lib/logger'
 import chalk from 'chalk'
-import { DEFAULT_FILE_SYSTEM } from '@/config'
+import { DEFAULT_FILE_SYSTEM, MOUNT_ROOT } from '@/config'
+import { makeServices } from './makeServices'
 
 export const setup = (
   options = { swap: false, fileSystem: DEFAULT_FILE_SYSTEM }
@@ -19,8 +20,9 @@ export const setup = (
       )
       return
     }
-    const chown = `sudo chown -R solv:solv /mt && sudo chmod -R 755 /mt`
+    const chown = `sudo chown -R solv:solv ${MOUNT_ROOT} && sudo chmod -R 755 ${MOUNT_ROOT}`
     spawnSync(chown, { shell: true, stdio: 'inherit' })
+    makeServices()
     startValidator()
     setupDirs()
     setupKeys()

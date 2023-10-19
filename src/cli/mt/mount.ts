@@ -1,7 +1,8 @@
 import { spawnSync } from 'child_process'
 import { formatDisk } from '../setup/formatDisk'
+import { MOUNT_ROOT } from '@/config'
 
-export const mount = (fileSystem: string, mountPath = '/mt') => {
+export const mount = (fileSystem: string, mountPath = MOUNT_ROOT) => {
   try {
     formatDisk(fileSystem)
     const cmd = `sudo mount ${fileSystem} ${mountPath}`
