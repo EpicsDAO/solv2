@@ -2,6 +2,7 @@ import {
   DEFAULT_FILE_SYSTEM,
   SECOND_FILE_SYSTEM,
   SOLANA_ACCOUNT_ROOT,
+  SWAP_PATH,
 } from '@/config'
 import { spawnSync } from 'child_process'
 
@@ -13,7 +14,7 @@ export const ensureFstabEntries = (
 ) => {
   const mtLine = `${fileSystem}        /mt     ext4 auto 0 0`
   const mtLine2 = `${fileSystem2}        /mnt     ext4 auto 0 0`
-  const swapLine = `/swapfile none swap sw 0 0`
+  const swapLine = `${SWAP_PATH} none swap sw 0 0`
   const lines = [mtLine, mtLine2, ramLine, swapLine]
   const output = spawnSync(`cat /etc/fstab`, {
     shell: true,
