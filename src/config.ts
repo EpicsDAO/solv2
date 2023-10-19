@@ -2,9 +2,6 @@ import { dotenv } from '@skeet-framework/utils'
 import { readFileSync } from 'fs'
 dotenv.config()
 
-export const config = JSON.parse(
-  readFileSync(`${__dirname}/config.json`, 'utf8')
-)
 export const DEFAULT_LANG = 'en'
 export const DEFAULT_SOLANA_VERSION = '1.17.2'
 export const DEFAULT_NODE_VERSION = '18.18.1'

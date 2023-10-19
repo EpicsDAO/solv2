@@ -5,16 +5,9 @@ import {
   SOLANA_ACCOUNT_ROOT,
   TESTNET_VALIDATOR_KEYFILE,
   VALIDATOR_VOTE_KEYFILE,
-  config,
 } from '@/config'
 
-const { network } = config()
-const identityKey =
-  network === 'mainnet-beta'
-    ? MAINNET_VALIDATOR_KEYFILE
-    : TESTNET_VALIDATOR_KEYFILE
-
-const commonValidatorCommands = `#!/bin/bash
+const commonValidatorCommands = (identityKey: string) => `#!/bin/bash
 exec solana-validator \\
 --identity ${identityKey} \\
 --vote-account ${VALIDATOR_VOTE_KEYFILE} \\
@@ -43,9 +36,16 @@ exec solana-validator \\
 --limit-ledger-size \\
 `
 
-export const startValidatorSh = (fetchSnapshot = false) => {
+export const startValidatorSh = (
+  fetchSnapshot = false,
+  network = 'testnet'
+) => {
+  const identityKey =
+    network === 'mainnet-beta'
+      ? MAINNET_VALIDATOR_KEYFILE
+      : TESTNET_VALIDATOR_KEYFILE
   if (!fetchSnapshot) {
-    return `${commonValidatorCommands}--no-snapshot-fetch`
+    return `${commonValidatorCommands(identityKey)}--no-snapshot-fetch`
   }
-  return commonValidatorCommands + '--no-incremental-snapshots'
+  return commonValidatorCommands(identityKey) + '--no-incremental-snapshots'
 }
