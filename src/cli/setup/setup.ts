@@ -20,14 +20,13 @@ export const setup = () => {
       return
     }
     const disks = getLargestUnmountedDisks()
-    setupSwap(disks[0], disks[1])
+    setupSwap(`/dev/${disks[0]}`, `/dev/${disks[1]}`)
     setupDirs()
     const chown = `sudo chown -R solv:solv ${MOUNT_ROOT} && sudo chmod -R 755 ${MOUNT_ROOT}`
     spawnSync(chown, { shell: true, stdio: 'inherit' })
     makeServices()
     startValidator()
     setupKeys()
-    spawnSync(chown, { shell: true, stdio: 'inherit' })
     const cmds = [
       'sudo systemctl daemon-reload',
       'sudo systemctl enable solv',

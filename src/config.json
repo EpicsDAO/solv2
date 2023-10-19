@@ -1,7 +1,5 @@
 {
   "lang": "en",
   "network": "testnet",
-  "version": "0.0.1",
-  "mountPath1": "/dev/nvme1n1",
-  "mountPath2": "/dev/nvme0n1"
+  "version": "0.0.1"
 }

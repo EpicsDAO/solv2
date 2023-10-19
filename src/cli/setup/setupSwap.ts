@@ -1,10 +1,9 @@
 import { Logger } from '@/lib/logger'
 import chalk from 'chalk'
-import { execSync, spawnSync } from 'child_process'
+import { spawnSync } from 'child_process'
 import { checkMemoryAndSwap } from '../check/checkMemoryAndSwap'
 import { ensureFstabEntries } from '../check/ensureMountAndFiles'
 import { formatDisk } from './formatDisk'
-import { mkdirSync } from 'fs'
 import {
   DEFAULT_FILE_SYSTEM,
   MOUNT_ROOT,
@@ -12,6 +11,7 @@ import {
   SOLANA_ACCOUNT_ROOT,
   SWAP_PATH,
 } from '@/config'
+import { createDirectoryIfNotExists } from '@/lib/createDirectoryIfNotExists'
 
 export const setupSwap = (
   fileSystem = DEFAULT_FILE_SYSTEM,
@@ -20,12 +20,8 @@ export const setupSwap = (
   try {
     formatDisk(fileSystem)
     formatDisk(fileSystem2)
-    if (!execSync(SOLANA_ACCOUNT_ROOT)) {
-      mkdirSync(SOLANA_ACCOUNT_ROOT, { recursive: true })
-    }
-    if (!execSync(MOUNT_ROOT)) {
-      mkdirSync(MOUNT_ROOT, { recursive: true })
-    }
+    createDirectoryIfNotExists(MOUNT_ROOT)
+    createDirectoryIfNotExists(SOLANA_ACCOUNT_ROOT)
 
     const cmds = [
       `sudo mount ${fileSystem} ${MOUNT_ROOT}`,
