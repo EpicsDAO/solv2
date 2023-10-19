@@ -1,11 +1,19 @@
-import { DEFAULT_FILE_SYSTEM, SOLANA_ACCOUNT_ROOT } from '@/config'
+import {
+  DEFAULT_FILE_SYSTEM,
+  SECOND_FILE_SYSTEM,
+  SOLANA_ACCOUNT_ROOT,
+} from '@/config'
 import { spawnSync } from 'child_process'
 
 const ramLine = `tmpfs ${SOLANA_ACCOUNT_ROOT} tmpfs rw,size=300G,user=solv 0 0`
 
-export const ensureFstabEntries = (fileSystem = DEFAULT_FILE_SYSTEM) => {
+export const ensureFstabEntries = (
+  fileSystem = DEFAULT_FILE_SYSTEM,
+  fileSystem2 = SECOND_FILE_SYSTEM
+) => {
   const mtLine = `${fileSystem}        /mt     ext4 auto 0 0`
-  const lines = [ramLine, mtLine]
+  const mtLine2 = `${fileSystem2}        /mnt     ext4 auto 0 0`
+  const lines = [mtLine, mtLine2, ramLine]
   const output = spawnSync(`cat /etc/fstab`, {
     shell: true,
     encoding: 'utf8',

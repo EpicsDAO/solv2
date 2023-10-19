@@ -1,6 +1,7 @@
 import { SOL_LOGROTATE_PATH } from '@/config'
 import { logRotates } from '@/template/logRotates'
-import { writeFileSync, existsSync } from 'fs'
+import { existsSync } from 'fs'
+import { execSync } from 'child_process'
 
 export function setupLogrotate(): void {
   console.log('Creating logrotate configuration for solana')
@@ -11,7 +12,8 @@ export function setupLogrotate(): void {
     )
   } else {
     const body = logRotates()
-    writeFileSync(SOL_LOGROTATE_PATH, body)
+    // Use sudo tee to write the file with superuser privileges
+    execSync(`echo "${body}" | sudo tee ${SOL_LOGROTATE_PATH} > /dev/null`)
     console.log('Logrotate configuration created.')
   }
 }

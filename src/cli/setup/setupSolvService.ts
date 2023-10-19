@@ -1,6 +1,7 @@
 import { SOL_SERVICE_PATH } from '@/config'
 import { solvService } from '@/template/solvService'
-import { writeFileSync, existsSync } from 'fs'
+import { existsSync } from 'fs'
+import { execSync } from 'child_process'
 
 export function setupSolvService(): void {
   console.log('Creating solvService configuration for solana')
@@ -11,7 +12,8 @@ export function setupSolvService(): void {
     )
   } else {
     const body = solvService()
-    writeFileSync(SOL_SERVICE_PATH, body)
+    // Use sudo tee to write the file with superuser privileges
+    execSync(`echo "${body}" | sudo tee ${SOL_SERVICE_PATH} > /dev/null`)
     console.log('solv.service configuration created.')
   }
 }

@@ -1,4 +1,4 @@
-import { setupSystemd } from '@/template/setupSystemd'
+import { setupSystemd } from '@/cli/setup/setupSystemd'
 import { setupLogrotate } from './setupLogrotate'
 import { setupSolvService } from './setupSolvService'
 

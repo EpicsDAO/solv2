@@ -45,9 +45,4 @@ export const mountCommands = () => {
       const disks = getLargestUnmountedDisks()
       console.log(disks)
     })
-
-  program
-    .command('mount')
-    .description('Mount all unmounted disks')
-    .action(() => {})
 }

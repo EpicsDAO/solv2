@@ -4,7 +4,7 @@ import {
   SOL_SYSTEM_CONFIG21_PATH,
 } from '@/config'
 import { execSync } from 'child_process'
-import { existsSync, writeFileSync } from 'fs'
+import { existsSync } from 'fs'
 
 export function setupSystemd(): void {
   if (!existsSync(SOL_SYSTEM_CONFIG21_PATH)) {
@@ -30,7 +30,9 @@ fs.nr_open = 1000000
 `
 
     // Write sysctl configuration
-    writeFileSync(SOL_SYSTEM_CONFIG21_PATH, sysctlConfig)
+    execSync(
+      `echo "${sysctlConfig}" | sudo tee ${SOL_SYSTEM_CONFIG21_PATH} > /dev/null`
+    )
 
     // Apply sysctl configuration
     execSync(`sudo sysctl -p ${SOL_SYSTEM_CONFIG21_PATH}`)
@@ -41,6 +43,8 @@ fs.nr_open = 1000000
     )
 
     // Write nofiles configuration
-    writeFileSync(SOL_NOFILES_CONF_PATH, nofilesConfig)
+    execSync(
+      `echo "${nofilesConfig}" | sudo tee ${SOL_NOFILES_CONF_PATH} > /dev/null`
+    )
   }
 }

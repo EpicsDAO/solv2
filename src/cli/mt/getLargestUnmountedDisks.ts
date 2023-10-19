@@ -5,7 +5,7 @@ type DiskInfo = {
   size: number
 }
 
-export function getLargestUnmountedDisks(): DiskInfo[] {
+export function getLargestUnmountedDisks(): string[] {
   const commandOutput = execSync('lsblk -l -b -o NAME,SIZE,MOUNTPOINT', {
     encoding: 'utf8',
   })
@@ -26,5 +26,5 @@ export function getLargestUnmountedDisks(): DiskInfo[] {
   unmountedDisks.sort((a, b) => b.size - a.size)
 
   // Return only the two largest disks
-  return unmountedDisks.slice(0, 2)
+  return unmountedDisks.slice(0, 2).map((disk) => disk.name)
 }
