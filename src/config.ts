@@ -1,5 +1,4 @@
 import { dotenv } from '@skeet-framework/utils'
-import { readFileSync } from 'fs'
 dotenv.config()
 
 export const DEFAULT_LANG = 'en'
@@ -10,9 +9,8 @@ export const DEFAULT_SOLANA_NETWORK = 'testnet'
 export const USERNAME = 'solv'
 
 export const SOLANA_ACCOUNT_ROOT = '/mnt/solana-accounts'
-export const SWAP_PATH = `/swap.img`
-
 export const MOUNT_ROOT = '/mt'
+export const SWAP_PATH = `${MOUNT_ROOT}/swapfile`
 export const LEDGER_PATH = `${MOUNT_ROOT}/ledger/validator-ledger`
 export const SOLV_ROOT = `${MOUNT_ROOT}/solana`
 export const LOG_DIR = `${SOLV_ROOT}/log`

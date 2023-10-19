@@ -13,7 +13,8 @@ export const ensureFstabEntries = (
 ) => {
   const mtLine = `${fileSystem}        /mt     ext4 auto 0 0`
   const mtLine2 = `${fileSystem2}        /mnt     ext4 auto 0 0`
-  const lines = [mtLine, mtLine2, ramLine]
+  const swapLine = `/swapfile none swap sw 0 0`
+  const lines = [mtLine, mtLine2, ramLine, swapLine]
   const output = spawnSync(`cat /etc/fstab`, {
     shell: true,
     encoding: 'utf8',
