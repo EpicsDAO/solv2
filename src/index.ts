@@ -1,7 +1,13 @@
 import dotenv from 'dotenv'
 import { Command } from 'commander'
 import { VERSION } from '@/lib/version'
-import { logCommands, startCommand, stopCommand, updateCommands } from './cli'
+import {
+  logCommands,
+  scpCommands,
+  startCommand,
+  stopCommand,
+  updateCommands,
+} from './cli'
 import { stakeCommands } from './cli/stake'
 import { dfCommands } from './cli/df'
 import { setupCommands } from './cli/setup'
@@ -53,6 +59,7 @@ async function main() {
     checkCommpands()
     installCommands()
     mountCommands()
+    scpCommands()
     await cronCommands()
     await setupCommands()
     await dfCommands()
