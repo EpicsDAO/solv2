@@ -3,6 +3,7 @@ import { mount } from './mount'
 import { spawnSync } from 'child_process'
 import { umount } from './umount'
 import { DEFAULT_FILE_SYSTEM } from '@/config'
+import { getLargestUnmountedDisks } from './getLargestUnmountedDisks'
 
 export const mountCommands = () => {
   program
@@ -36,4 +37,17 @@ export const mountCommands = () => {
       const cmd = `sudo mount --all --verbose`
       spawnSync(cmd, { shell: true, stdio: 'inherit' })
     })
+
+  program
+    .command('disks')
+    .description('Show unmounted disks')
+    .action(() => {
+      const disks = getLargestUnmountedDisks()
+      console.log(disks)
+    })
+
+  program
+    .command('mount')
+    .description('Mount all unmounted disks')
+    .action(() => {})
 }

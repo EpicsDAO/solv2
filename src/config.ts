@@ -66,5 +66,3 @@ export const config = () => {
     throw new Error(`config Reading Error: ${error}`)
   }
 }
-
-console.log(config())
