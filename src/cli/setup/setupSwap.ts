@@ -24,7 +24,6 @@ export const setupSwap = (
     createDirectoryIfNotExists(MOUNT_ROOT)
 
     const cmds = [
-      `sudo mount -t tmpfs -o rw,size=300G,user=solv 0 0 tmpfs ${SOLANA_ACCOUNT_ROOT}`,
       `sudo dd if=/dev/zero of=${SWAP_PATH} bs=1MiB count=250KiB`,
       `sudo mkswap ${SWAP_PATH}`,
       `sudo chmod 600 ${SWAP_PATH}`,

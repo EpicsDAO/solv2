@@ -7,6 +7,7 @@ import {
 } from '@/config'
 import { spawnSync } from 'child_process'
 import { existsSync } from 'fs'
+import { airdrop } from './airdrop'
 
 export const setupKeys = () => {
   try {
@@ -22,6 +23,10 @@ export const setupKeys = () => {
       `solana create-vote-account ${VALIDATOR_VOTE_KEYFILE} ${TESTNET_VALIDATOR_KEYFILE} ${VALITATOR_AUTHORITY_KEYFILE} --commission 10`,
     ]
     for (const cmd of cmds) {
+      if (cmd.includes('airdrop')) {
+        airdrop()
+        continue
+      }
       spawnSync(cmd, { shell: true, stdio: 'inherit' })
     }
     return true
