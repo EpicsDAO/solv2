@@ -12,6 +12,7 @@ export const SOLANA_ACCOUNT_ROOT = '/mnt/solana-accounts'
 export const MOUNT_ROOT = '/mt'
 export const SWAP_PATH = `${MOUNT_ROOT}/swapfile`
 export const LEDGER_PATH = `${MOUNT_ROOT}/ledger/validator-ledger`
+export const SNAPSHOT_PATH = `${LEDGER_PATH}/snapshots`
 export const SOLV_ROOT = `${MOUNT_ROOT}/solana`
 export const LOG_DIR = `${SOLV_ROOT}/log`
 export const LOG_PATH = `${SOLV_ROOT}/log/solana-validator.log`
