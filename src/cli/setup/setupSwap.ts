@@ -18,10 +18,10 @@ export const setupSwap = (
   fileSystem2 = SECOND_FILE_SYSTEM
 ) => {
   try {
+    createDirectoryIfNotExists(SOLANA_ACCOUNT_ROOT)
     formatDisk(fileSystem)
     formatDisk(fileSystem2)
     createDirectoryIfNotExists(MOUNT_ROOT)
-    createDirectoryIfNotExists(SOLANA_ACCOUNT_ROOT)
 
     const cmds = [
       `sudo mount -t tmpfs -o rw,size=300G,user=solv 0 0 tmpfs ${SOLANA_ACCOUNT_ROOT}`,
