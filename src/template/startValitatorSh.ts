@@ -14,7 +14,6 @@ exec solana-validator \\
 --log ${LOG_PATH} \\
 --accounts ${SOLANA_ACCOUNT_ROOT} \\
 --ledger ${LEDGER_PATH} \\
---no-genesis-fetch \\
 --entrypoint entrypoint.testnet.solana.com:8001 \\
 --entrypoint entrypoint2.testnet.solana.com:8001 \\
 --entrypoint entrypoint3.testnet.solana.com:8001 \\
@@ -45,7 +44,9 @@ export const startValidatorSh = (
       ? MAINNET_VALIDATOR_KEYFILE
       : TESTNET_VALIDATOR_KEYFILE
   if (!fetchSnapshot) {
-    return `${commonValidatorCommands(identityKey)}--no-snapshot-fetch`
+    return `${commonValidatorCommands(
+      identityKey
+    )}--no-snapshot-fetch\\--no-genesis-fetch`
   }
   return commonValidatorCommands(identityKey) + '--no-incremental-snapshots'
 }
