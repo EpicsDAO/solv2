@@ -46,7 +46,7 @@ export const startValidatorSh = (
   if (!fetchSnapshot) {
     return `${commonValidatorCommands(
       identityKey
-    )}--no-snapshot-fetch\\--no-genesis-fetch`
+    )}--no-snapshot-fetch \\\n--no-genesis-fetch`
   }
   return commonValidatorCommands(identityKey) + '--no-incremental-snapshots'
 }
