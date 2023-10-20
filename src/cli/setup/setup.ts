@@ -22,6 +22,7 @@ export const setup = () => {
     const disks = getLargestUnmountedDisks()
     setupSwap(`/dev/${disks[0]}`, `/dev/${disks[1]}`)
     setupDirs()
+    setupPermissions()
     makeServices()
     startValidator()
     setupKeys()
@@ -33,7 +34,6 @@ export const setup = () => {
     for (const line of cmds) {
       spawnSync(line, { shell: true, stdio: 'inherit' })
     }
-    setupPermissions()
     return true
   } catch (error) {
     throw new Error(`setup Error: ${error}`)
