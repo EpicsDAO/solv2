@@ -43,7 +43,7 @@ export const startValidatorSh = (
     network === 'mainnet-beta'
       ? MAINNET_VALIDATOR_KEYFILE
       : TESTNET_VALIDATOR_KEYFILE
-  if (fetchSnapshot) {
+  if (!fetchSnapshot) {
     return `${commonValidatorCommands(
       identityKey
     )}--no-snapshot-fetch \\\n--no-genesis-fetch`
