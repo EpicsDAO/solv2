@@ -1,5 +1,7 @@
+import { SOLV_DISCORD_INVITE } from '@/config'
 import chalk from 'chalk'
 import { spawnSync } from 'child_process'
+import { inspect } from 'util'
 
 export const airdrop = () => {
   try {
@@ -8,14 +10,24 @@ export const airdrop = () => {
       encoding: 'utf8',
     })
     const cmd = `solana airdrop 1`
-    const result = String(spawnSync(cmd, { shell: true, stdio: 'inherit' }))
-    if (result.includes('Error')) {
+    const { stderr } = spawnSync(cmd, {
+      shell: true,
+      encoding: 'utf8',
+    })
+    if (stderr.includes('Error')) {
       console.log(
         chalk.yellow(
-          `Airdrop failed. Please get 1 SOL in your pubkey: ${solanaPubkey} and Try Again with this command;\n`
+          `\n⚠️ Airdrop failed. Please get 1 SOL in your pubkey below:\n\n${chalk.white(
+            solanaPubkey.stdout
+          )}\n`
         )
       )
+      console.log(chalk.white(`and Try Again with this command;\n`))
       console.log(chalk.green(`$ solv setup --vote\n`))
+      console.log(
+        chalk.white(`To get Testnet SOL,\nVisit EpicsDAO's Discord Channel:`)
+      )
+      console.log(chalk.blue(`${SOLV_DISCORD_INVITE}\n`))
     }
     return true
   } catch (error) {

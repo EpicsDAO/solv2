@@ -4,6 +4,7 @@ import { startValidator } from './startValidator'
 import chalk from 'chalk'
 import { VALIDATOR_STARTUP_SCRIPT } from '@/config'
 import { setupVoteAccount } from './setupVoteAccount'
+import { airdrop } from './airdrop'
 
 export const setupCommands = async () => {
   program
@@ -22,5 +23,13 @@ export const setupCommands = async () => {
         console.log(chalk.white('Setting up Solana Validator ...'))
         setup()
       }
+    })
+
+  program
+    .command('airdrop')
+    .alias('ad')
+    .description('Airdrop to Solana Account')
+    .action(() => {
+      airdrop()
     })
 }

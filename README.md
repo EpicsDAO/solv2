@@ -47,18 +47,6 @@ $ sh -c "$(curl -sSfL "https://storage.googleapis.com/epics-bucket/resource/solv
 $ solv setup
 ```
 
-## Check Solana Validator Preparation Status
-
-```bash
-$ solv check
-```
-
-If it is not ready, you can check;
-
-- Mounted disk
-- Swap size
-- Memory size
-
 ## Start Solana Validator
 
 ```bash
@@ -85,8 +73,7 @@ If you want to download snapshot, you can use the following command.
 $ solv restart --snapshot
 ```
 
-This command will automatically add `--no-incremental-snapshots` to your
-`solana-validator.sh` command.
+This command will automatically remove `--no-incremental-snapshots` and add `--no-genesis-fetch`, `--no-snapshot-fetch` to your`solana-validator.sh` command.
 
 ## Solana Validator Status
 

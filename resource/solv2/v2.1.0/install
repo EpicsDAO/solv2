@@ -89,6 +89,7 @@ main() {
     setup_firewall
     install_solana
     install_nodenv_and_node
+    echo "Enter solv user password 👇"
     su solv
 }
 

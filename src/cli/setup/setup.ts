@@ -5,9 +5,9 @@ import { setupSwap } from './setupSwap'
 import { startValidator } from './startValidator'
 import { Logger } from '@/lib/logger'
 import chalk from 'chalk'
-import { MOUNT_ROOT } from '@/config'
 import { makeServices } from './makeServices'
 import { getLargestUnmountedDisks } from '../mt/getLargestUnmountedDisks'
+import { setupPermissions } from './userPermissions'
 
 export const setup = () => {
   try {
@@ -22,8 +22,6 @@ export const setup = () => {
     const disks = getLargestUnmountedDisks()
     setupSwap(`/dev/${disks[0]}`, `/dev/${disks[1]}`)
     setupDirs()
-    const chown = `sudo chown -R solv:solv ${MOUNT_ROOT} && sudo chmod -R 755 ${MOUNT_ROOT}`
-    spawnSync(chown, { shell: true, stdio: 'inherit' })
     makeServices()
     startValidator()
     setupKeys()
@@ -35,6 +33,7 @@ export const setup = () => {
     for (const line of cmds) {
       spawnSync(line, { shell: true, stdio: 'inherit' })
     }
+    setupPermissions()
     return true
   } catch (error) {
     throw new Error(`setup Error: ${error}`)
