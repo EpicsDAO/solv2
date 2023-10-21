@@ -8,6 +8,7 @@ import chalk from 'chalk'
 import { makeServices } from './makeServices'
 import { getLargestUnmountedDisks } from '../mt/getLargestUnmountedDisks'
 import { setupPermissions } from './userPermissions'
+import { startSolana } from '../start/startSolana'
 
 export const setup = () => {
   try {
@@ -24,7 +25,7 @@ export const setup = () => {
     setupDirs()
     setupPermissions()
     makeServices()
-    startValidator()
+    startValidator(true)
     setupKeys()
     const cmds = [
       'sudo systemctl daemon-reload',
@@ -34,6 +35,7 @@ export const setup = () => {
     for (const line of cmds) {
       spawnSync(line, { shell: true, stdio: 'inherit' })
     }
+    startSolana()
     return true
   } catch (error) {
     throw new Error(`setup Error: ${error}`)
