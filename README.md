@@ -32,20 +32,13 @@ operations on the Solana blockchain.
 
 # Solana Validator Setup
 
-Linux Ubuntu 20.04 TS
-Linux Ubuntu 22.04 TS
-
 ```bash
-$ sh -c "$(curl -sSfL "https://storage.googleapis.com/epics-bucket/resource/solv2/v2.1.0/install")"
-```
-
-![solv](https://storage.googleapis.com/epics-bucket/Validator/apt-install-solv.gif)
-
-## Generate Solana Validator Keys and Config
-
-```bash
+$ sh -c "$(curl -sSfL "https://storage.googleapis.com/epics-bucket/resource/solv/v2.1.3/install")"
+$ cd ~ && source ~/.profile
 $ solv setup
 ```
+
+![solv](https://storage.googleapis.com/epics-bucket/Validator/solv-install-top.gif)
 
 ## Start Solana Validator
 
@@ -73,7 +66,7 @@ If you want to download snapshot, you can use the following command.
 $ solv restart --snapshot
 ```
 
-This command will automatically remove `--no-incremental-snapshots` and add `--no-genesis-fetch`, `--no-snapshot-fetch` to your`solana-validator.sh` command.
+This command will automatically remove `--no-incremental-snapshots` and add `--no-genesis-fetch`, `--no-snapshot-fetch` to yoursolana-validator.sh command.
 
 ## Solana Validator Status
 
@@ -131,13 +124,12 @@ Commands:
   stake [options] <stakeAccountPubkey>  Solana Delegate Stake Command
   update|u [options]                    Solana Version Update, Restart and Monitoring Delinquent Stake
   log|l [options]                       tail logs
-  release|r [options] <version>         publish release
   help [command]                        display help for command
 ```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/EpicsDAO/solv2 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/EpicsDAO/solv This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
