@@ -24,13 +24,9 @@ EOF
 }
 
 create_user() {
-    if id "solv" &>/dev/null; then
-        echo "User 'solv' already exists, skipping..."
-    else
-        echo "Creating user 'solv'..."
-        sudo adduser solv
-        sudo usermod -aG sudo solv
-    fi
+    echo "Creating user 'solv'..."
+    sudo adduser solv
+    sudo usermod -aG sudo solv
 }
 
 setup_firewall() {

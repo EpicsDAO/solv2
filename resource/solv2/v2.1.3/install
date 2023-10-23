@@ -24,7 +24,7 @@ EOF
 }
 
 create_user() {
-    if id "solv" &>/dev/null; then
+    if getent passwd solv >/dev/null 2>&1; then
         echo "User 'solv' already exists, skipping..."
     else
         echo "Creating user 'solv'..."
@@ -32,6 +32,8 @@ create_user() {
         sudo usermod -aG sudo solv
     fi
 }
+
+
 
 setup_firewall() {
     echo "Configuring firewall"
