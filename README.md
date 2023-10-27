@@ -21,19 +21,7 @@
   </a>
 </p>
 
-## CLI Tool for Managing Solana Validators - "solv2"
-
-Discover the ease of setting up a Solana Validator Node on a Latitude server using solv, a powerful tool designed to simplify blockchain interactions.
-
-With just a single command, solv eliminates the usual complexities, enabling you to launch a Solana Validator swiftly.
-
-This tool not only streamlines the setup process but also opens doors for more individuals to participate in the blockchain network, making the Solana ecosystem more accessible.
-
-Whether you're a seasoned developer or a blockchain enthusiast stepping into the validator realm, solv on Latitude server is your go-to solution for an uncomplicated, fast setup.
-
-Dive into the world of Solana, explore the capabilities of solv, and be part of the blockchain revolution with minimal effort and maximum efficiency.
-
-## Validator Trial Campaign
+## Solana Validator Trial Campaign
 
 solv, in partnership with Latitude, is offering a $100 coupon 🎉
 
@@ -87,16 +75,6 @@ $ solv setup
 ```
 
 [![solv](https://storage.googleapis.com/epics-bucket/Validator/solv-install-top.gif)](https://youtu.be/rY4bajhRJgw)
-
-## Start Solana Validator
-
-```bash
-$ sh -c "$(curl -sSfL "https://storage.googleapis.com/epics-bucket/resource/solv/v2.1.3/install")"
-$ cd ~ && source ~/.profile
-$ solv setup
-```
-
-![solv](https://storage.googleapis.com/epics-bucket/Validator/solv-install-top.gif)
 
 ## Start Solana Validator
 
@@ -187,7 +165,7 @@ Commands:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/EpicsDAO/solv This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/EpicsDAO/solv2 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
