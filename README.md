@@ -21,7 +21,7 @@
   </a>
 </p>
 
-## Solana Validator Trial Campaign
+## 🎁 Solana Validator Trial Campaign
 
 solv, in partnership with Latitude, is offering a $100 coupon 🎉
 
@@ -29,16 +29,17 @@ By utilizing this coupon, you can obtain $100 in free credits when setting up a 
 
 Please add the following coupon code from the admin panel 👷‍♀️
 
-​🎁【$100 Coupon Code: ELSOUL100】
+​【$100 Coupon Code: ELSOUL100】
 
 🖥️ Bare Metal Server - Latitude.sh
+
 https://www.latitude.sh/
 
 📘 How to launch a Solana Validator node using solv:
 
-① Install
-② Update Settings
-③ Setup Complete
+- ① Install
+- ② Update Settings
+- ③ Setup Complete
 
 solv2 installation command:
 https://solv.epics.dev
@@ -66,7 +67,7 @@ Server OS:
 - Linux Ubuntu 20.04 TS
 - Linux Ubuntu 22.04 TS
 
-## Solana Validator Setup
+## 🖥️ Solana Validator Setup
 
 ```bash
 $ sh -c "$(curl -sSfL "https://storage.googleapis.com/epics-bucket/resource/solv/v2.1.3/install")"
@@ -76,19 +77,19 @@ $ solv setup
 
 [![solv](https://storage.googleapis.com/epics-bucket/Validator/solv-install-top.gif)](https://youtu.be/rY4bajhRJgw)
 
-## Start Solana Validator
+### Start Solana Validator
 
 ```bash
 $ solv start
 ```
 
-## Stop Solana Validator
+### Stop Solana Validator
 
 ```bash
 $ solv stop
 ```
 
-## Restart Solana Validator
+### Restart Solana Validator
 
 ```bash
 $ solv restart
@@ -104,19 +105,19 @@ $ solv restart --snapshot
 
 This command will automatically remove `--no-incremental-snapshots` and add `--no-genesis-fetch`, `--no-snapshot-fetch` to yoursolana-validator.sh command.
 
-## Solana Validator Status
+### Solana Validator Status
 
 ```bash
 $ solv status
 ```
 
-## Solana Validator Logs
+### Solana Validator Logs
 
 ```bash
 $ solv log
 ```
 
-## Show Solana Validator Config
+### Show Solana Validator Config
 
 This command will show your all config paths which are used by solana validator.
 
@@ -124,11 +125,11 @@ This command will show your all config paths which are used by solana validator.
 $ solv config
 ```
 
-## Solana Delegation Program
+### Solana Delegation Program
 
 https://solana.org/delegation-program
 
-## solv CLI
+### solv CLI
 
 ```bash
 $ solv --help
