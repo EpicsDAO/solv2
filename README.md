@@ -21,16 +21,74 @@
   </a>
 </p>
 
-## CLI Tool for Managing Solana Validators - "solv"
+## CLI Tool for Managing Solana Validators - "solv2"
 
-solv is a comprehensive command-line utility designed for Solana network
-validators. It simplifies the process of setting up, monitoring, and
-managing Solana validators, offering streamlined operations and enhanced
-performance insights. Whether you're a seasoned Solana validator or just
-getting started, solv provides the tools you need to ensure optimal validator
-operations on the Solana blockchain.
+Discover the ease of setting up a Solana Validator Node on a Latitude server using solv, a powerful tool designed to simplify blockchain interactions.
 
-# Solana Validator Setup
+With just a single command, solv eliminates the usual complexities, enabling you to launch a Solana Validator swiftly.
+
+This tool not only streamlines the setup process but also opens doors for more individuals to participate in the blockchain network, making the Solana ecosystem more accessible.
+
+Whether you're a seasoned developer or a blockchain enthusiast stepping into the validator realm, solv on Latitude server is your go-to solution for an uncomplicated, fast setup.
+
+Dive into the world of Solana, explore the capabilities of solv, and be part of the blockchain revolution with minimal effort and maximum efficiency.
+
+## Validator Trial Campaign
+
+solv, in partnership with Latitude, is offering a $100 coupon 🎉
+
+By utilizing this coupon, you can obtain $100 in free credits when setting up a Solana validator using solv.
+
+Please add the following coupon code from the admin panel 👷‍♀️
+
+​🎁【$100 Coupon Code: ELSOUL100】
+
+🖥️ Bare Metal Server - Latitude.sh
+https://www.latitude.sh/
+
+📘 How to launch a Solana Validator node using solv:
+
+① Install
+② Update Settings
+③ Setup Complete
+
+solv2 installation command:
+https://solv.epics.dev
+
+EpicsDAO Discord channel:
+https://discord.gg/3rxK8CPxwr
+
+## 🔴 YouTube Video
+
+https://youtu.be/rY4bajhRJgw
+
+## 📖 Server Spec
+
+Tested on the following servers:
+
+Metal server: c3.large.x86
+
+- 24 Cores
+- 2.8 5GHz
+- 256GB RAM
+- 2 x 1.9TB NVME
+
+Server OS:
+
+- Linux Ubuntu 20.04 TS
+- Linux Ubuntu 22.04 TS
+
+## Solana Validator Setup
+
+```bash
+$ sh -c "$(curl -sSfL "https://storage.googleapis.com/epics-bucket/resource/solv/v2.1.3/install")"
+$ cd ~ && source ~/.profile
+$ solv setup
+```
+
+[![solv](https://storage.googleapis.com/epics-bucket/Validator/solv-install-top.gif)](https://youtu.be/rY4bajhRJgw)
+
+## Start Solana Validator
 
 ```bash
 $ sh -c "$(curl -sSfL "https://storage.googleapis.com/epics-bucket/resource/solv/v2.1.3/install")"
