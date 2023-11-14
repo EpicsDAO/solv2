@@ -2,7 +2,9 @@ import dotenv from 'dotenv'
 import { Command } from 'commander'
 import { VERSION } from '@/lib/version'
 import {
+  catchupCommand,
   logCommands,
+  monitorCommand,
   scpCommands,
   startCommand,
   stopCommand,
@@ -51,6 +53,8 @@ async function main() {
         console.log({ slot })
       })
 
+    catchupCommand()
+    monitorCommand()
     configCommands()
     statusCommands()
     startCommand()
